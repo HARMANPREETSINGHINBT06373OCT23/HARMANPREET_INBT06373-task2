@@ -14,59 +14,28 @@ body {
   justify-content: center;
   padding: 20px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e1b36, #0f0c29);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Decorative Bubbles */
-body::before, body::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ff4e50, #f9d423);
-  filter: blur(100px);
-  opacity: 0.2;
-  z-index: 0;
-}
-
-body::before {
-  width: 400px;
-  height: 400px;
-  top: -100px;
-  left: -100px;
-}
-
-body::after {
-  width: 300px;
-  height: 300px;
-  bottom: -80px;
-  right: -80px;
+  background: #3b2801;
 }
 
 .language {
-  max-width: 800px;
   width: 100%;
+  max-width: 690px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  z-index: 1;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .translater {
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  border: 1px solid #ccc;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .translater .text-input {
   display: flex;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   flex-direction: row;
+  border-bottom: 1px solid #ccc;
   flex-wrap: wrap;
 }
 
@@ -76,18 +45,18 @@ body::after {
   border: none;
   outline: none;
   resize: none;
-  background: transparent;
+  background: none;
   font-size: 18px;
-  padding: 15px;
-  color: #fff;
-}
-
-.text-input textarea::placeholder {
-  color: #ccc;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 
 .text-input .to-text {
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid #ccc;
+}
+
+.text-input textarea::placeholder {
+  color: #b7b6b6;
 }
 
 .controls,
@@ -97,94 +66,106 @@ li,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #ffffff;
+  color: #e42b2b;
 }
 
 .controls {
   list-style: none;
   padding: 12px 15px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .controls .row {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 .controls .row select {
-  color: #fff;
+  color: #333;
   border: none;
   outline: none;
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 10px;
-  border-radius: 8px;
-  appearance: none;
+  font-size: 18px;
+  background: none;
+  padding-left: 5px;
   cursor: pointer;
 }
 
-.text-input textarea::-webkit-scrollbar,
-.controls .row select::-webkit-scrollbar {
-  width: 6px;
+.text-input textarea::-webkit-scrollbar {
+  width: 4px;
 }
-
+.controls .row select::-webkit-scrollbar {
+  width: 8px;
+}
 .text-input textarea::-webkit-scrollbar-track,
 .controls .row select::-webkit-scrollbar-track {
-  background: transparent;
+  background: #fff;
 }
-
-.text-input textarea::-webkit-scrollbar-thumb,
-.controls .row select::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
+.text-input textarea::-webkit-scrollbar-thumb {
+  background: #ddd;
   border-radius: 8px;
+}
+.controls .row select::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 8px;
+  border-right: 2px solid #ffffff;
 }
 
 .controls .exchange {
-  color: #fff;
+  color: #e42b2b;
   cursor: pointer;
-  font-size: 18px;
-  transition: transform 0.2s ease, color 0.3s ease;
+  font-size: 16px;
+  transition: transform 0.2s ease;
 }
-
-.controls .exchange:hover {
-  color: #f9d423;
-}
-
 .controls i:active {
   transform: scale(0.9);
 }
 
-/* Responsive */
+/* ✅ Mobile Responsiveness */
 @media (max-width: 768px) {
-  .text-input {
+  .language {
+    padding: 20px;
+  }
+
+  .translater .text-input {
     flex-direction: column;
   }
 
   .text-input .to-text {
     border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #ccc;
   }
 
   .text-input textarea {
     height: 200px;
   }
 
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .controls .row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .controls .row .icons {
     display: none;
   }
 
-  .language {
-    padding: 20px;
-  }
-
-  .controls .exchange {
+  .language button {
+    padding: 13px;
     font-size: 16px;
   }
 
   .controls .row select {
+    font-size: 16px;
+  }
+
+  .controls .exchange {
     font-size: 14px;
-    padding: 5px 8px;
   }
 }
